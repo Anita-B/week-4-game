@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+	<meta charset="UTF-8">
+	<title>RPG Game - jQuery</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+	<script src="assets/javascript/game.js"></script>
+	
+</head>
+
+<body>
+	<div class="container-fluid">
+
+		<div class="row logo">
+				<img src="assets/images/logo.png" height="136px" width="180px" alt="Friendship games" class="">
+		</div>
+
+		<!-- Your game play section start-->
+		<!-- character images-->
+		<div class="row gamePlay">
+			<div class="col-md-3"></div>
+			<div id="gamePlayPlayer" class="col-md-2"></div>
+			<div id="VS" class="col-md-2"></div>
+			<div id="gamePlayOpponent" class="col-md-2"></div>
+			<div class="col-md-3"></div>
+		</div>
+
+		<!-- game score-->
+		<div class="row gameScore">
+			<div id="challenge" class="col-md-3">
+				<a href="#" class="btn btn-warning" role="button">Challenge your opponent!</a>
+			</div>
+			<div class="col-md-2">
+				<div class="panel panel-default">
+  					<div id="playerSkill" class="panel-body"></div>
+				</div>
+			</div>
+			<div  class="col-md-2"></div>
+
+			<div class="col-md-2">
+				<div class="panel panel-default">
+  					<div id="opponentSkill" class="panel-body"></div>
+				</div>
+			</div>
+			
+			<div class="col-md-6"></div>
+		</div>
+		<!-- Your game play section end -->
+
+		<!-- game restart-->
+		<div class="row gameRestart">
+			<div id="restart" class="col-md-3">
+				<a href="#" class="btn btn-success" role="button">Restart the game!</a>
+			</div>
+			<div class="col-md-9"></div>
+		</div>
+		<!-- game restart end -->
+
+		<!-- "Choose Your Character" section start-->
+		<div class="row yourCharacter">
+			<div class="col-md-2"></div>
+			<div class="col-md-8"><h2>YOUR CHARACTER</h2></div>
+			<div class="col-md-2"></div>
+		</div>
+
+		<div class="row yourCharacter">
+
+			<div class="col-md-2"></div>
+
+			<div class="col-md-2">
+				<div class="thumbnail player" value="Twilight_Sparkle">
+			    	<img src="assets/images/Twilight_Sparkle2.png" alt="Twilight Sparkle">
+			    	<div class="caption">
+			        	<h3>Twilight Sparkle</h3>
+			        	<p class="health">120</p>
+			    	</div>
+			    </div>
+			</div>
+
+			<div class="col-md-2">
+				<div class="thumbnail player" value="Rainbow_Dash">
+			    	<img src="assets/images/Rainbow_Dash.png" alt="Rainbow Dash">
+			    	<div class="caption">
+			        	<h3>Rainbow Dash</h3>
+			        	<p class="health">100</p>
+			    	</div>
+			    </div>
+			</div>
+
+			<div class="col-md-2">
+				<div class="thumbnail player" value="Applejack">
+			    	<img src="assets/images/Applejack.png" alt="Applejack">
+			    	<div class="caption">
+			        	<h3 class="health">Applejack</h3>
+			        	<p>150</p>
+			    	</div>
+			    </div>
+			</div>
+
+			<div class="col-md-2">
+				<div class="thumbnail player" value="Fluttershy">
+			    	<img src="assets/images/Fluttershy.png" alt="Fluttershy">
+			    	<div class="caption">
+			        	<h3>Fluttershy</h3>
+			        	<p class="health">180</p>
+			    	</div>
+			    </div>
+			</div>
+
+			<div class="col-md-2"></div>
+
+		</div>
+		<!-- Your character section end-->
+
+	</div>
+
+
+</body>
+</html>

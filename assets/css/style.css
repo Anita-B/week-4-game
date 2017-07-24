@@ -1,0 +1,40 @@
+/*************************** General ***************************/
+body {
+	background: url("../images/arena2.png");
+	background-repeat: no-repeat;
+	background-color: #800080;
+	font-size: 18px;
+    line-height: 34px;
+    color: #777;
+}
+.logo img {
+	display: block;
+	margin: 0 auto 20px auto;
+}
+h1 {
+	text-align: center;
+	color: #fff;
+}
+h2 {
+	color: #fff;
+}
+.showNo {
+	display: none;
+}
+.showYes {
+	display: block;
+}
+.chosenPlayer {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eaade6+0,ffffff+50,eaade6+100&0.7+0,0.7+100 */
+	background: -moz-radial-gradient(center, ellipse cover, rgba(234,173,230,0.7) 0%, rgba(255,255,255,0.7) 50%, rgba(234,173,230,0.7) 100%); /* FF3.6-15 */
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(234,173,230,0.7) 0%,rgba(255,255,255,0.7) 50%,rgba(234,173,230,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: radial-gradient(ellipse at center, rgba(234,173,230,0.7) 0%,rgba(255,255,255,0.7) 50%,rgba(234,173,230,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3eaade6', endColorstr='#b3eaade6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.chosenOpponent {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#816284+0,ffffff+50,816284+100&0.7+0,0.7+100 */
+	background: -moz-radial-gradient(center, ellipse cover, rgba(129,98,132,0.7) 0%, rgba(255,255,255,0.7) 50%, rgba(129,98,132,0.7) 100%); /* FF3.6-15 */
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(129,98,132,0.7) 0%,rgba(255,255,255,0.7) 50%,rgba(129,98,132,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: radial-gradient(ellipse at center, rgba(129,98,132,0.7) 0%,rgba(255,255,255,0.7) 50%,rgba(129,98,132,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3816284', endColorstr='#b3816284',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
