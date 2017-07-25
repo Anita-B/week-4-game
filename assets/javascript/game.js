@@ -5,12 +5,16 @@ $(document).ready(function() {
 // Make our variables global to the runtime of our application
 var playerName = "";
 var opponentName = "";
+var opponentCounter = 0;
+var player = "";
+var won = false;
 
 
 var Twilight_Sparkle = {
 	"name": "Twilight_Sparkle",
 	"namePrint": "Twilight Sparkle",
 	"healthPoints": 120,
+	"playerBasePower": 8,
 	"playerPower": 8,
 	"opponentCounterPower": 10,
 }
@@ -18,21 +22,24 @@ var Rainbow_Dash = {
 	"name": "Rainbow_Dash",
 	"namePrint": "Rainbow Dash",
 	"healthPoints": 100,
-	"playerPower": 8,
+	"playerBasePower": 9,
+	"playerPower": 9,
 	"opponentCounterPower": 5
 }
 var Applejack = {
 	"name": "Applejack",
 	"namePrint": "Applejack", 
 	"healthPoints": 150,
-	"playerPower": 8,
-	"opponentCounterPower": 20
+	"playerBasePower": 5,
+	"playerPower": 5,
+	"opponentCounterPower": 10
 }
 var Fluttershy = {
 	"name": "Fluttershy",
 	"namePrint": "Fluttershy",
-	"healthPoints": 180,
-	"playerPower": 8,
+	"healthPoints": 160,
+	"playerBasePower": 7,
+	"playerPower": 7,
 	"opponentCounterPower": 25
 }
 
@@ -52,6 +59,7 @@ var convertStringtoVariable = {
         playerName = "";
         opponentName = "";
         isPlayerChosen = false;
+        isOpponentChosen = false;
 
         $("#gamePlayPlayer, #gamePlayOpponent, #VS").empty();
         $(".gameScore").removeClass("showYes").addClass("showNo");
@@ -65,21 +73,23 @@ var convertStringtoVariable = {
     $(".player").on("click", function() {
 
     	// If player is chosen, we should be choosing the opponent, otherwise, the player
-        if (isPlayerChosen) {
+        if (isPlayerChosen && !isOpponentChosen) {
           opponent = this;
           opponentName = $(this).attr('value'); //get name of opponent
           $("#gamePlayOpponent").html(opponent); //put opponent in opponent area
           $(this).addClass("chosenOpponent"); //add background color
           $(".gameScore").removeClass("showNo").addClass("showYes"); //display button, game info
+          isOpponentChosen = true;
 
         }
-        else {
+        else if (!isPlayerChosen) {
           player = this; 
           playerName = $(this).attr('value'); //why doesn't this.value work???
           $("#gamePlayPlayer").html(player); //put player in player area
           $("#VS").html("<h1>VS</h1>"); //add VS
           $(this).addClass("chosenPlayer"); //add background color
           isPlayerChosen = true;
+          $("#title").html("<h2>YOUR OPPONENTS</h2>"); //add new title to opponents
         }
 
 
@@ -93,9 +103,9 @@ var convertStringtoVariable = {
     	//so we have to change it to a variable with convertStringtoVariable object
     
     	//if everyone's healthPoints are greater than or equal to 0, keep playing 
-    	if(convertStringtoVariable[playerName].healthPoints >= 0 && convertStringtoVariable[opponentName].healthPoints >= 0){
+    	if(convertStringtoVariable[playerName].healthPoints > 0 && convertStringtoVariable[opponentName].healthPoints > 0){
 
-    		console.log(convertStringtoVariable[playerName].healthPoints + "  " + convertStringtoVariable[opponentName].healthPoints);
+    		//console.log(convertStringtoVariable[playerName].healthPoints + "  " + convertStringtoVariable[opponentName].healthPoints);
     		//Calculate for the Player
 			convertStringtoVariable[playerName].healthPoints -= convertStringtoVariable[opponentName].opponentCounterPower; 
 			
@@ -115,17 +125,46 @@ var convertStringtoVariable = {
 	    	$("div[value=" + convertStringtoVariable[opponentName].name + "] p").html(convertStringtoVariable[opponentName].healthPoints);
 	    	//console.log(convertStringtoVariable[opponentName].healthPoints);
 	    	$("#opponentSkill").html("You won " + convertStringtoVariable[playerName].playerPower + " points from " + convertStringtoVariable[opponentName].namePrint + "!");
-	    	convertStringtoVariable[playerName].playerPower += 8;
+	    	convertStringtoVariable[playerName].playerPower += convertStringtoVariable[playerName].playerBasePower;
 
     	}
 
     	// player won
     	else if (convertStringtoVariable[playerName].healthPoints > convertStringtoVariable[opponentName].healthPoints){
-    		$("#playerSkill").html("You won!");
+    		
 
-    		//launch restart button
+    		$("#gamePlayOpponent").removeClass("chosenOpponent");
+    		$("#gamePlayOpponent").empty();
 
-    		//
+
+
+    		//don't know how to stop counter from incrementing when the user 
+    		//is clicking it repeatedly after having won a game
+    		
+    			opponentCounter++;
+
+    	
+
+    		//if not all opponents have been bested
+    		if (opponentCounter !== 3){
+
+    			//reset game for next opponent
+    			isOpponentChosen = false;
+    			$("#playerSkill").html("You won! Choose another opponent!");
+    			$("#opponentSkill").html("");
+    		}
+    		else if (opponentCounter === 3) {
+    			$("#title").html("");
+    			$("#gamePlayPlayer").empty();
+    			$("#VS").html(player);
+    			$("#" + playerName + " p").html("YOU WON!!!");
+    			$(".gameScore").removeClass("showYes").addClass("showNo");
+    			$(".gameRestart").removeClass("showNo").addClass("showYes"); //display button, game info
+    			//launch restart button
+    			$("#restart").on("click", function() {
+    				location.reload();
+    			});
+    		}
 
     	}
 
